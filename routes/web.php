@@ -15,4 +15,4 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/services', 'PagesController@services');
 
-Route::get('');
+Route::get('/about', 'PagesController@about');

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Hello World</h1>
+    <h1>{{ $title }}</h1>
     <p>This is the home page</p>
 
 @endsection
