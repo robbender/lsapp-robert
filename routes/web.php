@@ -13,5 +13,6 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::get()
+Route::get('/services', 'PagesController@services');
 
+Route::get('');
