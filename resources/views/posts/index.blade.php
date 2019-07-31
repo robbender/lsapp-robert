@@ -17,6 +17,10 @@
             
 
         @endforeach
+        
+    @else
+        <p>No post found</p>
+    @endif
     
 @endif
 
