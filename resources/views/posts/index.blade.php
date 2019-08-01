@@ -4,7 +4,7 @@
 
     <h1>Posts</h1>
     <br>
- @if(count($posts) > 1)
+ @if(count($posts) > 0)
      
         @foreach($posts as $post)
 
@@ -14,8 +14,8 @@
             </div>
             <br>
             
-
         @endforeach
+        {{ $posts->links() }}
 
     @else
         <p>No post found</p>
