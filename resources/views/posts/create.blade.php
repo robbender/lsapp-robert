@@ -6,7 +6,7 @@
     <h1>Create Post</h1>
     <br>
     <br>
-    <form method="POST" action="/posts">
+    <form method="POST" action="PostsController@store">
         @csrf
         <div class="form-row">
           <div class="form-group col-md-6">
