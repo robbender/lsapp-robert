@@ -22,7 +22,7 @@
               <a class="nav-link" href="/posts">Posts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="/posts/create" tabindex="-1" aria-disabled="true">Create Post</a>
             </li>
           </ul>
         </div>
