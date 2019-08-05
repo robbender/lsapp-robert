@@ -15,12 +15,14 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // $posts = Post::all();
+        $posts = Post::all();
         // $posts = Post::orderBy('title', 'desc')->get();
         // $posts = DB::select('SELECT * FROM posts');
-        $posts = Post::orderBy('title', 'desc')->paginate(1);
-        return view ('posts/index')->with('posts', $posts);
+        // $posts = Post::orderBy('title', 'desc')->paginate(1);
+        // return view ('posts.index')->with('posts', $posts);
+        return view('posts.index', compact('posts'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,13 +42,22 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            'title' => 'required',
-            'body'  => 'required'
-        ]);
+      {
+            // $this->validate($request, [
+            //     'title' => 'required',
+            //     'body'  => 'required'
+            // ]);
 
-        return 123;
+            return request()->all();
+
+    
+        //     //Create Post
+        //     $post = new Post;
+        //     $post->title = $request->input('title');
+        //     $post->body = $request->input('body');
+        //     $post->save();
+
+            return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
