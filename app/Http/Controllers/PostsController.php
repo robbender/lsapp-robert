@@ -18,10 +18,11 @@ class PostsController extends Controller
         $posts = Post::all();
         // $posts = Post::orderBy('title', 'desc')->get();
         // $posts = DB::select('SELECT * FROM posts');
-        $posts = Post::orderBy('title', 'desc')->paginate(10);
         // return view ('posts.index')->with('posts', $posts);
         
         // return $posts;
+
+        $posts = Post::orderBy('title', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
