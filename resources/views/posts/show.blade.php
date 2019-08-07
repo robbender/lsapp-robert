@@ -7,10 +7,15 @@
 
     <h1>{{ $post->title }}</h1>
     <br>
-    <p> {{ $post->body }}</p>
+    <div>
+         {{ $post->body }}
+    </div>
     <br>
     <small>Written on {{ $post->created_at }}</small>
+
+    <hr>
  
+    <a href="/post/{{ $post->id }}/edit" class="btn btn-default">Edit</a>
 
     
 @endsection
