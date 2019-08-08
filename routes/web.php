@@ -15,6 +15,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/services', 'PagesController@services');
 Route::get('/about', 'PagesController@about');
 Route::get('/posts/index', 'PagesConroller@index');
+Route::get('/posts/edit', 'PostsController@update');
 
 Route::get('/posts/create', 'PostsController@create');
 // Route::post('/posts', 'PostsController@store');
