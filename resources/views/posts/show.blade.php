@@ -15,7 +15,7 @@
 
     <hr>
  
-    <a href="/post/{{ $post->id }}/edit" class="btn btn-default">Edit</a>
+    <a href="/posts/{{ $post->id }}/edit" class="btn btn-default">Edit</a>
 
     
 @endsection
