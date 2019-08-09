@@ -17,24 +17,24 @@
         </div>
         <div class="form-group">
             <label for="">Body</label>
-            <textarea class="form-control rounded-0" name="body" id="" rows="10" placeholder="Body Text" value="{{ $post->body }}"></textarea>
+            <textarea class="form-control rounded-0" name="body" id="" rows="10">{{ $post->body }}</textarea>
           </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
-      <form method="POST" action="/users/{{ $post->id }}">
+      <form method="POST" action="/posts/{{ $post->id }}">
         @method('DELETE')
         @csrf
- 
+
          <div class="field">
- 
+
              <div class="control">
                  <button type="submit" class="button is-danger is-large">Delete</button>
- 
+
              </div>
          </div>
      </form>
 
 
-    
+
 @endsection
