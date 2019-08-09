@@ -19,7 +19,7 @@ class PostsController extends Controller
         // $posts = Post::orderBy('title', 'desc')->get();
         // $posts = DB::select('SELECT * FROM posts');
         // return view ('posts.index')->with('posts', $posts);
-        
+
         // return $posts;
 
         $posts = Post::orderBy('title', 'desc')->paginate(10);
@@ -53,7 +53,7 @@ class PostsController extends Controller
 
             // return request()->all();
 
-    
+
         //     //Create Post
             $post = new Post;
             $post->title = $request->input('title');
@@ -106,8 +106,10 @@ class PostsController extends Controller
 
     //     //Create Post
         $post = Post::find($id);
+
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
@@ -121,8 +123,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        $post = Post::find($id);
         $post->delete();
-        
+
         return redirect('/posts');
     }
 }
