@@ -4,9 +4,11 @@
 
     <a href="/posts" class="btn btn-primary">Back</a>
     <br>
-
+    <br>
     <img style="width:50%" src="/storage/images/{{ $post->image }}">
-
+    <br>
+    <br>
+    <br>
     <h1>{{ $post->title }}</h1>
     <br>
     <div>
