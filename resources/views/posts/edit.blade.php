@@ -19,11 +19,17 @@
             <label for="">Body</label>
             <textarea class="form-control rounded-0" name="body" id="" rows="10">{{ $post->body }}</textarea>
           </div>
+          <br>
+
+        <div class="field">
+            {{-- <label class="label is-large" type="text" name="image"></label> --}}
+            <input type="file" class="btn btn-info {{ $errors->has('image') ? 'is-danger' : '' }}" id="" name="image" accept="image/png, image/jpeg" enctype="multipart/form-data" placeholder="Image" required>
+        </div>
+        <br>
+
         <button type="submit" class="btn btn-primary btn-sm"">Submit</button>
       </form>
-
       <br>
-
       <form method="POST" action="/posts/{{ $post->id }}">
         @method('DELETE')
         @csrf
