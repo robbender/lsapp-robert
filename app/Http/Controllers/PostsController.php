@@ -98,10 +98,32 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body'  => 'required'
+            'body'  => 'required',
+            'image' => 'required|nullable|max:1999'
         ]);
 
         // return request()->all();
+
+        // Handle File Upload
+        if($request->hasFile('image')) {
+            //Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalImage();
+
+            //Get just filename
+            $filename = pathinfo(filenameWithExt, PATHINFO_FILENAME);
+
+            //Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+            //Create filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //Upload the image
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
 
     //     //Create Post
@@ -109,6 +131,7 @@ class PostsController extends Controller
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->image = $request->input('image');
 
         $post->save();
 
