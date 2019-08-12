@@ -131,7 +131,7 @@ class PostsController extends Controller
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->image = $request->input('image');
+        $post->image = $fileNameToStore;
 
         $post->save();
 
