@@ -49,7 +49,7 @@ class PostsController extends Controller
             $this->validate($request, [
                 'title' => 'required',
                 'body'  => 'required',
-                'image' => 'image|max:1999'
+                // 'image' => 'image|max:1999'
             ]);
 
             // return request()->all();
@@ -75,7 +75,7 @@ class PostsController extends Controller
             $post = new Post;
             $post->title = $request->input('title');
             $post->body = $request->input('body');
-            $post->image = $request->input('image');
+            $post->image = $fileNameToStore;
             $post->save();
 
             return redirect('/posts')->with('success', 'Post Created');
@@ -126,7 +126,7 @@ class PostsController extends Controller
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->image = $fileNameToStore;
+        // $post->image = $fileNameToStore;
 
         $post->save();
 
