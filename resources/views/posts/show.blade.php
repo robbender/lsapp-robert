@@ -5,6 +5,8 @@
     <a href="/posts" class="btn btn-primary">Back</a>
     <br>
 
+    <img style="width:50%" src="/storage/images/{{ $post->image }}">
+
     <h1>{{ $post->title }}</h1>
     <br>
     <div>
@@ -14,9 +16,9 @@
     <small>Written on {{ $post->created_at }}</small>
 
     <hr>
- 
+
     <a href="/posts/{{ $post->id }}/edit" class="btn btn-default">Edit</a>
 
-    
+
 @endsection
 
