@@ -46,11 +46,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
       {
-            $this->validate($request, [
-                'title' => 'required',
-                'body'  => 'required',
-                'image' => 'image|nullable|max:1999'
-            ]);
+            // $this->validate($request, [
+            //     'title' => 'required',
+            //     'body'  => 'required',
+            //     // 'image' => 'image|nullable|max:1999'
+            // ]);
 
             // return request()->all();
 
@@ -75,6 +75,7 @@ class PostsController extends Controller
             $post = new Post;
             $post->title = $request->input('title');
             $post->body = $request->input('body');
+            $post->image = $request->input('image');
             $post->save();
 
             return redirect('/posts')->with('success', 'Post Created');
