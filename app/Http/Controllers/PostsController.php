@@ -120,6 +120,23 @@ class PostsController extends Controller
             'body'  => 'required',
         ]);
 
+        // Handle File Upload
+        if($request->hasFile('image')) {
+            //Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo(filenameWithExt, PATHINFO_FILENAME);
+            //Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //Create filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload the image
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
         // return request()->all();
 
     //     //Create Post
