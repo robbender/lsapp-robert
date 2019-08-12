@@ -49,7 +49,7 @@ class PostsController extends Controller
             $this->validate($request, [
                 'title' => 'required',
                 'body'  => 'required',
-                'image' => 'image|nullable|max:1999'
+                'image' => 'image|max:1999'
             ]);
 
             // return request()->all();
