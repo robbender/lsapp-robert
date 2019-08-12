@@ -46,11 +46,11 @@ class PostsController extends Controller
      */
     public function store(Request $request)
       {
-            // $this->validate($request, [
-            //     'title' => 'required',
-            //     'body'  => 'required',
-            //     // 'image' => 'image|nullable|max:1999'
-            // ]);
+            $this->validate($request, [
+                'title' => 'required',
+                'body'  => 'required',
+                'image' => 'image|nullable|max:1999'
+            ]);
 
             // return request()->all();
 
