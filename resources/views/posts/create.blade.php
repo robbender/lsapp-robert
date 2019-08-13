@@ -21,7 +21,7 @@
 
         <div class="field">
             {{-- <label class="label is-large" type="text" name="image"></label> --}}
-            <input type="file" class="btn btn-info {{ $errors->has('image') ? 'is-danger' : '' }}" id="" name="image" accept="image/png, image/jpeg" enctype="multipart/form-data" placeholder="Image" required>
+            <input type="file" class="btn btn-info {{ $errors->has('image') ? 'is-danger' : '' }}" id="" name="image" accept="image/png, image/jpeg, image/jpg" enctype="multipart/form-data" placeholder="Image" required>
 
         </div>
         <br>
