@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use App\Post;
 use DB;
 
@@ -50,13 +51,14 @@ class PostsController extends Controller
             $this->validate($request, [
                 'title' => 'required',
                 'body'  => 'required',
-                // 'image' => 'image|nullable|max:1999'
+                'image' => 'image|nullable|max:1999|mimes:jpg,png',
             ]);
 
             // return request()->all();
-
+                Log::debug('testing');
             // Handle File Upload
             if($request->hasFile('image')) {
+                Log::debug('request hasFile');
                 //Get filename with the extension
                 $filenameWithExt = $request->file('image')->getClientOriginalName();
                 //Get just filename
@@ -66,9 +68,11 @@ class PostsController extends Controller
                 //Create filename to store
                 $fileNameToStore = $filename.'_'.time().'.'.$extension;
                 //Upload the image
+                Log::debug('fileNameToStore='. $fileNameToStore);
                 $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
-
+                Log::debug('path='.$path);
             } else {
+                Log::debug('request doesNot have a image');
                 $fileNameToStore = 'noimage.jpg';
             }
 
